@@ -1,10 +1,5 @@
+var TreeNode = require('./tree-structure.js');
 
- //Definition for a binary tree node.
- function TreeNode(val) {
-      this.val = val;
-      this.left = this.right = null;
-      this.visited = false;
- }
  var node1 = new TreeNode(7);
  var node2 = new TreeNode(6);
  var node3 = new TreeNode(4);
