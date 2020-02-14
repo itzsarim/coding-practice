@@ -21,6 +21,9 @@ node7.right = node8;
 
 
 function findLCA(root, a,b) {
+    if(a==null || b==null) {
+        return 'input is null';
+    }
     if(root === null) {
         return null;
     }
