@@ -1,5 +1,4 @@
 var input = 'address.office.zipcode.1';
-// output expected is 93117
 var user = {
     name: "Sarim",
     address: {

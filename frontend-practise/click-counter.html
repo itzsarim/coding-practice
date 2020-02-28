@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <header>
+            <h1>Button clicked:</h1>
+            <p id="count">0</p>
+            <h2>times</h2>
+            <button>CLICK ME</button>
+        </header>
+        <script>
+        (function() {
+            var countElem = document.getElementById('count');
+            var buttonElem = document.querySelector('button');
+            var count = 0
+            buttonElem.addEventListener('click', function() {
+                count++;
+                countElem.innerText = count;
+            });
+        })()
+        
+        </script>   
+    </body>
+</html>
