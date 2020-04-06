@@ -51,6 +51,66 @@ let arr = [5, 3, 8, 1];
 console.log(filterRange(arr, 1, 4));
 console.log(arr);
 
+// sort in decreasing order
+
+const decreasingOrder = (arr) => {
+    return arr.slice().sort((a,b) => {
+        return b-a;
+    })
+}
+const input = [5, 2, 1, -10, 8];
+console.log('decreasing order of ', input, 'is ', decreasingOrder(input));
+
+/*
+You have an array of user objects, each one has user.name. Write the code that converts it into an array of names.
+
+For instance:
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+
+let names = /* ... your code 
+
+* alert( names ); // John, Pete, Mary
+*/
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+
+let mapToNames = (users) => {
+    return users.map(elem => elem.name);
+}
+
+let names = mapToNames(users);
+console.log(names);
+
+/*
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+console.log( unique(strings) ); // Hare, Krishna, :-O
+*/
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+let unique = (arr) => {
+    let set = new Set(arr);
+    return Array.from(set);
+}
+
+console.log( unique(strings) );
+
+
+
 /*
 Let’s say we received an array of users in the form {id:..., name:..., age... }.
 
@@ -75,8 +135,17 @@ usersById = {
 }
 */
 
+let users = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+  ];
 
+  let groupById = (users) => {
+    return users.reduce((obj, user) => { obj[user.id] = user; return obj }, {})
+  }
 
+  console.log(groupById(users));
 /*
 https://javascript.info/task/calculator-extendable
 */

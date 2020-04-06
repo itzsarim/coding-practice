@@ -204,6 +204,6 @@ class LinkedList{
 module.exports = LinkedList;
 
 const palinll = new LinkedList();
-palinll.append('K').append('A').append('Y').append('A').append('K');
+palinll.append('1').append('2');
 console.log(palinll.toString());
 console.log(palinll.isPalindrome() ? 'string is palindrome' : 'string is not palindrome');
