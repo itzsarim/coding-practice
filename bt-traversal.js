@@ -89,7 +89,6 @@ TreeNode.prototype._iterativePostOrderHelper = function(root, stack, result) {
     stack.push(root);
 
     while(stack.length !== 0) {
-        debugger;
         var node = stack.pop();
         if(node && node.visited) {
             result.push(node.val);
@@ -134,8 +133,23 @@ function iterativePostOrder(root) {
     return result;
 }
 
+function iterativePreOrder(root) {
+    var stack = [];
+    var result = [];
+    stack.push(root);
+    while(stack.length > 0) {
+        var node = stack.pop();
+        result.push(node.val);
+        if(node.right != null)
+        stack.push(node.right);
+        if(node.left != null)
+        stack.push(node.left);
+    }
+    return result;
+}
 
 console.log('Inorder traversal', inorderTraversal(node1));
 console.log('Preorder traversal', preorderTraversal(node1));
 console.log('Postorder traversal', node1.postOrderTraversal());
 console.log('Postorder traversal iterative', iterativePostOrder(node1));
+console.log('Predorder traversal iterative', iterativePreOrder(node1));

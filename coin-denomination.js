@@ -26,25 +26,25 @@ var target = 5;
 coinChange(arr, bufferarr, target, 0, 0, 0);
 
 // just print the number of ways the target can be achieved with the coins
-function returnways(target, arr) {
-  var sumTillNow = 0;
-  var startIndex = 0;
-  var ways = 0;
-  function returnwayshelper(target, arr, sumTillNow, startIndex) {
-    if(sumTillNow == target) {
-      ways++;
-      return;
-    }
-    if(sumTillNow > target) {
-      return;
-    }
+// function returnways(target, arr) {
+//   var sumTillNow = 0;
+//   var startIndex = 0;
+//   var ways = 0;
+//   function returnwayshelper(target, arr, sumTillNow, startIndex) {
+//     if(sumTillNow == target) {
+//       ways++;
+//       return;
+//     }
+//     if(sumTillNow > target) {
+//       return;
+//     }
 
-    for(var i = startIndex; i<arr.length; i++) {
-      returnwayshelper(target, arr, sumTillNow + arr[i], i);
-    }
-  }
-  returnwayshelper(target, arr, sumTillNow, startIndex);
-  return ways;
-}
+//     for(var i = startIndex; i<arr.length; i++) {
+//       returnwayshelper(target, arr, sumTillNow + arr[i], i);
+//     }
+//   }
+//   returnwayshelper(target, arr, sumTillNow, startIndex);
+//   return ways;
+// }
 
-console.log(returnways(4, [1,2,3]));
+// console.log(returnways(4, [1,2,3]));
