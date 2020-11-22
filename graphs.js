@@ -24,7 +24,7 @@ function Graph() {
   graph.addVertex(6);
   
   graph.addEdge(1,2);
-  graph.addEdge(3,1);
+  graph.addEdge(1,3);
   graph.addEdge(2,4);
   graph.addEdge(4,6);
   graph.addEdge(4,3);
@@ -104,4 +104,91 @@ function Graph() {
   
   
   
-  
+// given a graph and number T, find if T exists in the graph
+
+Graph.prototype.search = function(num) {
+  let vertexs = Object.keys(this.adjList); // first vertex in the adjlist
+  let visit = {};
+  vertexs.forEach((vertex) => {
+    visit[vertex] = 'unvisited';
+  });
+  return this._searchDfsUtil(vertexs[0], visit, num);
+}
+
+Graph.prototype._searchDfsUtil = function(vertex, visit, num) {
+  visit[vertex] = 'visiting';
+  if (vertex == num) {return true};
+  for(let i=0; i<this.adjList[vertex].length; i++) {
+    if(visit[this.adjList[vertex][i]] == 'visiting') {
+      console.log('cycle detected');
+    } else if(visit[this.adjList[vertex][i]] == 'unvisited' && this._searchDfsUtil(this.adjList[vertex][i], visit, num)){
+      return true;
+    }
+  }
+  visit[vertex] = 'visited';
+  return false;
+}
+console.log(graph.search(7));
+
+// Given a directed graph, make a clone
+Graph.prototype.visit = function() {
+  let vertexs = Object.keys(this.adjList); // first vertex in the adjlist
+  let visit = {};
+  vertexs.forEach((vertex) => {
+    visit[vertex] = 'unvisited';
+  });
+  return visit;
+}
+
+Graph.prototype.clone = function(root) {
+  if(root == null) {
+    return null;
+  }
+  let adjListCopy = {};
+  let rootCopy = root;
+  let map = new Map();
+  map.set(root, rootCopy);
+  this._cloneUtil(root, adjListCopy, map, this.visit);
+  return adjListCopy;
+}
+
+Graph.prototype._cloneUtil = function(node, adjListCopy, map, visit) {
+  visit[node] = 'visiting';
+  for(let i=0; i<this.adjList[node].length; i++) {
+    let neigh = this.adjList[node][i];
+    let neighCopy;
+    if(!map.get(neigh)) { // this nodes clone was not made before
+      // clone it and then add it to adjListCopy
+      neighCopy = neigh;
+      adjListCopy[neighCopy] = [];
+      map.set(neigh, neighCopy);
+    } 
+    if(adjListCopy[map.get(node)]){
+      adjListCopy[map.get(node)].push(map.get(neigh));
+    } else{
+      adjListCopy[map.get(node)] = [];
+    }
+    if(visit[neigh] == 'unvisited') {
+      this._cloneUtil(neigh, adjListCopy, map, visit);
+    }
+  }
+  visit[node] = 'visited';
+}
+
+console.log('adjList clone', graph.clone(1));
+
+
+// level order traversal
+Graph.prototype.levelTraverse = function() {
+  let vertexs = Object.keys(this.adjList);
+  let root = vertexs[0];
+  let q = [];
+  q.nq = q.push;
+  q.dq = q.shift;
+  q.nq(root);
+
+  while(q.length != 0) {
+
+  }
+
+}

@@ -11,7 +11,7 @@ const numberLetterMap = {
     0: []
   }
   
-  const numberToConvertToLetters = '96820';
+  const numberToConvertToLetters = '213';
   
   const findNumberMnemonic = (num, buffer, nextIndex, bufferIndex) => {
     if(bufferIndex == num.length || nextIndex == num.length) {

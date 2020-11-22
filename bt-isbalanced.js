@@ -19,22 +19,42 @@ node7.right = node8;
 
 
 
-function height(node) {
-    if(node === null) {
+// function height(node) {
+//     if(node === null) {
+//         return -1;
+//     }
+//     return 1 + Math.max(height(node.left), height(node.right));
+// }
+
+// function diffHeights(node) {
+//     if(node === null) {
+//         return null;
+//     }
+//     return Math.abs(height(node.left) - height(node.right));
+// }
+
+// if(diffHeights(node1) <= 1) {
+//     console.log('Tree is balanced');
+// } else {
+//     console.log('Tree is not balanced');
+// }
+
+
+var isBalanced = function(root) {
+    if(root == null) {
+        return true;
+    }
+    
+    let diff = Math.abs(height(root.left) - height(root.right));
+    return diff > 1 ? false: true;
+};
+
+var height = function(root) {
+    if(root == null) {
         return -1;
     }
-    return 1 + Math.max(height(node.left), height(node.right));
+    
+    return Math.max(height(root.left), height(root.right)) + 1;
 }
 
-function diffHeights(node) {
-    if(node === null) {
-        return null;
-    }
-    return Math.abs(height(node.left) - height(node.right));
-}
-
-if(diffHeights(node1) <= 1) {
-    console.log('Tree is balanced');
-} else {
-    console.log('Tree is not balanced');
-}
+console.log(isBalanced(node1));

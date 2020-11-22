@@ -21,13 +21,18 @@ let apicall1 = () => {
 
 let throttle = (func, delay) => {
     let done = false;
-    return function() {
+    let lastArgs;
+    return function(...args) {
         if (!done) {
             done = true;
             setTimeout(function() {
-                func();
+                if(lastArgs) {
+                    func.apply(this, args);
+                }
                 done = false;
             }, delay);
+        } else {
+            lastArgs = args
         }
     }
 }

@@ -1,0 +1,26 @@
+.board {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+}
+.square {
+    background-color: aliceblue;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+}
+.button {
+    width: 10px;
+    height: 10px;
+}
+.xor0 {
+    font-size: 3em;
+    color:green;
+}
+button {
+    font-size: 3em;
+    color: green;
+    background-color: aliceblue;
+    border-radius: 10%;
+}
