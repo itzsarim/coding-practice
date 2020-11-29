@@ -43,6 +43,16 @@ function flat(arr, depth = 1) {
   }
 
   //const arr = [1,4,[5,[6, 7, [8]]]];
+
+  function flattenReduce(arr) {
+    return arr.reduce((acc, elem) => Array.isArray(elem) ? acc.concat(flattenReduce(elem)) : acc.concat(elem), [])
+  }
   const arr = [1,[2],[3,[4]]];
   console.log(flat(arr,1));
   console.log(flatR(arr,1));
+  console.log(flattenReduce(arr));
+  const obj = new Map()
+  obj.cool = '!';
+  console.log(flattenReduce(['BFE', [{dev: true}, ['is', obj]]]));
+
+  
