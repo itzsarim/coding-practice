@@ -23,9 +23,20 @@ function dotDelimiterHelper(obj, splitDotString) {
     return result;
 }
 
+function dotDelimiterHelperIterative(obj, splitDotString) {
+    if(obj===null || splitDotString.length === 0) {
+        return '';
+    }
+    let ans = obj;
+    splitDotString.forEach((elem) => {
+        ans = ans[elem];
+    })
+    return ans;
+}
+
 function dotDelimiter(obj, dotstring) {
     var splitDotString = dotstring.split('.');
-    var result = dotDelimiterHelper(obj, splitDotString);
+    var result = dotDelimiterHelperIterative(obj, splitDotString);
     return result;
 }
 

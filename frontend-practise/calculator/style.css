@@ -1,0 +1,38 @@
+.wrapper {
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.container {
+    width: 50%;
+    height: 70%;
+    background: black;
+    opacity: 0.8;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(4, auto);
+}
+.input-digit{
+    grid-column: 1 / span 4;
+    font-size: 24px;
+    text-align: right;
+}
+.action{
+    background-color: black;
+    color: inherit;
+}
+.operator{
+    background-color: orange;
+    color: inherit;
+}
+.number {
+    background-color: gray;
+    color: inherit;
+}
+.number[data-number='0'] {
+    grid-column: 1 / span 2; 
+}

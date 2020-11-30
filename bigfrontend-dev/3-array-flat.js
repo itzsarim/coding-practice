@@ -42,6 +42,24 @@ function flat(arr, depth = 1) {
     })
   }
 
+  function flattenComplete(arr) {
+    if(arr === null || arr.length === 0) {
+      return [];
+    }
+    let resultArr = [];
+    function flattenCompleteHelper(resultArr, arr) {
+      arr.forEach((elem) => {
+        if(Array.isArray(elem)) {
+          flattenCompleteHelper(resultArr, elem);
+        } else {
+          resultArr.push(elem);
+        }
+      })
+    }
+    flattenCompleteHelper(resultArr, arr);
+    return resultArr;
+  }
+
   //const arr = [1,4,[5,[6, 7, [8]]]];
 
   function flattenReduce(arr) {
@@ -56,3 +74,4 @@ function flat(arr, depth = 1) {
   console.log(flattenReduce(['BFE', [{dev: true}, ['is', obj]]]));
 
   
+  console.log(flattenComplete(arr));
