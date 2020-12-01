@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <title>Tab widget</title>
-        <style rel="stylesheet">
-            .inline-btn {
-                display: inline;
-            }
-        </style>
+        <link rel="stylesheet" href="./style.css"/>    
     </head>
     <body>
         <header>
@@ -15,61 +13,11 @@
             </h1>
         </header>
         <main>
-            <section>
-                <div class="inline-btn">
-                    <button id="btn1" name="btn1">
-                        TAB 1
-                    </button>
-                    <button id="btn2" name="btn2">
-                        TAB 2
-                    </button>
-                    <button id="btn3" name="btn3">
-                        TAB 3
-                    </button>
-                </div>
-                <div>
-                    <textarea rows="20" cols="40" placeholder="Enter text here"></textarea>
-                </div>
+            <section id='tab-widget'>
             </section>
         </main>
         <footer>
         </footer>
-    <script>
-        let form = document.querySelector('#form-identity');
-        let formElements = form.elements;
-        let submitButton = document.querySelector('#Submit');
-        submitButton.addEventListener('click', (e) => {
-            printElements();
-            e.preventDefault();
-        })
-        let printElements = function() {
-            for(i=0; i<formElements.length; i++) {
-            let element = formElements[i];
-            if(element.nodeName == "INPUT" && (element.type == "radio" || element.type == "checkbox")  && element.checked) {
-                console.log('Checked');
-                console.log('Name', element.name);
-                console.log('Value', element.value);
-            }
-        }
-        }
-        console.log('i am here');
-        let btn = document.querySelectorAll('button');
-        let textarea = document.querySelector('textarea');
-        let map = new Map();
-        let active = "1";
-        btn.forEach((elem) => {
-            elem.addEventListener('click', (e) => {
-            let name = e.target.name;
-            active = e.target.name;
-            textarea.innerText = '';
-            let text = map.get(active);
-            textarea.innerText = text;
-            console.log('name of button is', name);
-        });
-        })
-        textarea.addEventListener('keyup', (e) => {
-            map.set(active, e.target.value);
-        });
-    </script>
+        <script src='./index.js'></script>
     </body>
 </html>

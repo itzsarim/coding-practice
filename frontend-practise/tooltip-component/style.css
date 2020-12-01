@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.tooltip-content {
+    display: none;
+    top: -40px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: aqua;
+    color: black;
+    position: absolute;
+}
+.tooltip-content::before {
+    content: "";
+    border: 5px solid black;
+    border-color: aqua transparent transparent transparent;
+    top: 28px;
+    left: 10px;
+    position: absolute;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip:hover .tooltip-content {
+    display: block;
+}

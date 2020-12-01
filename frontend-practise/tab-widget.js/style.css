@@ -1,0 +1,30 @@
+.wrapper {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 50%;
+}
+.main-content{
+    width: 80%;
+    background-color: bisque;
+    height: 500px;
+    padding: 10px;
+
+}
+.btn {
+    background-color: greenyellow;
+    color: white;
+    width: 20%;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+}
+.btn.active { 
+    background-color: white;
+    color: greenyellow;
+}
+p {
+    margin: 0;
+}
