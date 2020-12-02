@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    width: 50%
+}
+
+img {
+    height: 40%;
+    width: 100%;
+    border: 1px solid black;
+}
+
+p{
+    font-size: 1em;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
