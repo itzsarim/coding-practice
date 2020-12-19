@@ -21,4 +21,4 @@ function findKThLargest(arr, k) {
     return pivot;
   }
 
-  console.log(findKThLargest([7,2,4,4,8,1], 4));
+  console.log(findKThLargest([7,2,3,4,8,1], 4));

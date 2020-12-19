@@ -33,9 +33,9 @@ let hasPathHelper = (maze, queue, destination, memo) => {
             console.log(neighbour.level);
             return true;
         }
-        if (hasPathHelper(maze, queue, destination, memo)) {
-            return true;
-        }
+        // if (hasPathHelper(maze, queue, destination, memo)) {
+        //     return true;
+        // }
     }
 
     return false;

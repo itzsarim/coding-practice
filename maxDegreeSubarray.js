@@ -49,10 +49,10 @@ function maxDegreeSubarray(arr) {
     var subarrayCount = 0;
     for(var i=0;i<arr.length;i++) {
         if(arr[i] == valWithDegree) {
-            degreeCount++
-            if(degreeCount != maxDegree) {
-                subarrayCount++;
-            }
+            degreeCount++;
+        }
+        if(degreeCount != maxDegree) {
+            subarrayCount++;
         }
     }
     return subarrayCount;
