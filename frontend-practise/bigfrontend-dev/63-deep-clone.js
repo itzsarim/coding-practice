@@ -83,3 +83,38 @@ originalArray[0][0] = 'hello'  // Will affect the original and shallow
 console.log("Original array:", originalArray) // 37 0 Object { hello: "moon" }
 console.log("Shallow copy:", shallowCopiedArray) // 37 3700 Object { hello: "moon" }
 console.log("Deep copy:", deepCopiedArray) // 37 3700 Object { hello: "world" }
+
+let obj = {
+  'name': 'sarim',
+  'address': {
+    'city': 'mumbai'
+  }
+}
+
+let shallowCopy = {...obj};
+shallowCopy.address.city = 'delhi';
+console.log('shallow', shallowCopy.address);
+console.log('original', obj.address);
+let deepCopy = cloneDeep(obj);
+deepCopy.address.city = 'allbd';
+console.log('deep', deepCopy);
+console.log('original', obj);
+
+function cloneDeep(obj) {
+  if(obj === null || obj === undefined) {
+    throw Error('invalid input');
+  }
+  function helper(data) {
+    if(typeof data !== 'object') {
+      return data;
+    }
+
+    let deepCloned = Array.isArray(data) ? [] : {};
+
+    for(let key in data) {
+      deepCloned[key] = helper(data[key]);
+    }
+    return deepCloned;
+  }
+  return helper(obj);
+}

@@ -16,4 +16,4 @@ function chunk(items, size) {
   }
 
   let items = [1,2,3,4,5];
-  console.log(chunk(items, 6));
+  console.log(chunk(items, 2));

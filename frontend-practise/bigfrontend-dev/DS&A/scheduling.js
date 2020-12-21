@@ -22,9 +22,8 @@ let printNumbers = (from, to) => {
 printNumbers(1,10);
 
 let printNumbersWithTimeout = (from, to) => {
-    let timer;
     i = from;
-    timer = setTimeout(function go() {
+    setTimeout(function go() {
         if(i<=to) {
             console.log(i);
             setTimeout(go, 1000);
@@ -34,3 +33,29 @@ let printNumbersWithTimeout = (from, to) => {
 }
 
 printNumbersWithTimeout(1,10);
+
+
+function printNumbersWithTimeoutNew(from, to) {
+    for(let i=from; i<=to; i++) {
+        setTimeout(() => {
+            console.log(i);
+        }, 1000*i);
+    }
+}
+
+function printNumbersWithIntevalNew(from, to) {
+    let i=from;
+    let timer;
+    timer = setInterval(() => {
+        console.log(i);
+        if(i<to) {
+            i++;
+        } else {
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+
+printNumbersWithIntevalNew(1,10);
+
+printNumbersWithTimeoutNew(1,10);
